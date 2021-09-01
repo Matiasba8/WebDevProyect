@@ -1,0 +1,27 @@
+<h1 class="log_in_ms">  Security Questions </h1>
+<br>
+<pre  style="font-size: medium"> brief description of how security questions work </pre>
+<br>
+<% flash.each do |type, msg| %>
+  <%if type == 'success' %>
+    <div class="alert alert-success log_in_ms">
+      <%= msg %>
+    </div>
+
+  <%else %>
+    <div class="alert alert-warning log_in_ms">
+      <%= msg %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= form_with(url: check_email_path) do |form| %>
+  <div class="mb-3 log_in_ms">
+    <%= form.label :email %>
+    <%= form.text_field :email, class:"form-control" %>
+  </div>
+  <br>
+  <div class="mb-3 log_in_ms">
+    <%= form.submit "Recover Password", class: "btn btn-primary", method: :post%>
+  </div>
+<%end %>

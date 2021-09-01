@@ -1,0 +1,68 @@
+<%= form_with(model: lodging, local: true) do |form| %>
+  <% if lodging.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lodging.errors.count, "error") %> prohibited this lodging from being saved:</h2>
+
+      <ul>
+        <% lodging.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :title, "Title" %>
+    <%= form.text_field :title, class:"form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, "Description" %>
+    <%= form.text_field :description, class:"form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :location, "Location" %>
+    <%= form.text_field :location, class:"form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :amenities, "Amenities" %>
+    <%= form.text_field :amenities, class:"form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :facilities, "Facilities" %>
+    <%= form.text_field :facilities, class:"form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :equipment, "Equipment" %>
+    <%= form.text_field :equipment, class:"form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :equipment, "Start Availability" %>
+    <%= form.text_field :start_availability, class:"form-control", type:"date", :required => true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :equipment, "End Availability" %>
+    <%= form.text_field :end_availability, class:"form-control", type:"date", :required => true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label "Image" %>
+    <%= form.file_field :photo, :required => true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label "Video" %>
+    <%= form.file_field :video %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary", method: :post%>
+  </div>
+  
+<% end %>

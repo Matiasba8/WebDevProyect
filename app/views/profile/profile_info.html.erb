@@ -1,0 +1,87 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col-lg-4">
+    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+    <h2><%= @user.username %></h2>
+    <p><%= @user.bio %></p>
+    <!-- <p><a class="btn btn-secondary" style="color: white" href="#">View Reviews »</a></p> -->
+</div><!-- /.col-lg-4 -->
+
+<p class = "profile_info">
+  <strong>Name:</strong>
+  <%= @user.first_name %>
+  <%= @user.last_name %>
+</p>
+
+
+<p class = "profile_info">
+  <strong>Current role:</strong>
+  <%= @user.current_role %>
+</p>
+
+<h2>Lodgings</h2>
+
+<table class = "table">
+  <thead>
+    <tr>
+      <th>Preview</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Location</th>
+      <th>Amenities</th>
+      <th>Facilities</th>
+      <th>Equipment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lodgings.each do |lodging| %>
+      <tr>
+        <td>
+          <% if lodging.photo.attached? %>
+            <img alt="" src="<%=(url_for(lodging.photo))%>" style="width:200px;height:200px;">
+          <% end %>
+        </td>
+        <td><%= lodging.title %></td>
+        <td><%= lodging.description %></td>
+        <td><%= lodging.location %></td>
+        <td><%= lodging.amenities %></td>
+        <td><%= lodging.facilities %></td>
+        <td><%= lodging.equipment %></td>
+        <td><%= link_to 'Delete Lodge', lodging, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+        <!--
+        <td><%= link_to 'Edit', edit_lodging_path(lodging) %></td>
+        <td><%= link_to 'Destroy', lodging, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Lodging', "lodgings/new", style:"background:white", class:"btn", id: "default-button"%>
+
+<h2>User Reviews</h2>
+
+<table class = "table">
+  <thead>
+    <tr>
+      <th>Rating</th>
+      <th>Review</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.rate %></td>
+        <td><%= review.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

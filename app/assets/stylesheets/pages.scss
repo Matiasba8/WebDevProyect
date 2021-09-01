@@ -1,0 +1,239 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+// delete the decoration of link_to
+
+a{ text-decoration: none; color: white;}
+
+#default-button{
+  border-color: #0d6efd;
+  padding: 16px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.vertical_center {
+  vertical-align: middle;
+}
+
+#checkbox-items{
+  text-align: left;
+  padding-left: 10px;
+}
+#submit-filter{
+  text-align: center;
+}
+//center header
+#filter-header{
+  text-align: center;
+}
+
+#filter-sub-header{
+  text-align: center;
+  margin-top: 36px;
+  font-weight: bold;
+}
+
+// flex
+#filter_options_container {
+  display: flex;
+  align-items: center;
+}
+
+#menu-padding{
+  padding: 10px;
+  width: 100%;
+  max-width: 768px;
+}
+
+/* Logo Title */
+.logo_title{
+  font-family: "Lato";
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+/* NAVBAR STYLES */
+
+.nav-bar-item{
+  font-family: "Lato";
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 32px;
+}
+
+.account_opt{
+  color:black;
+}
+
+.account_logo{
+  background: rgb(33, 37, 41);
+  border: 0;
+}
+
+.text_pog{
+  text-align: center;
+  height: 200px;
+  line-height: 200px;
+}
+
+/* Search box style */
+
+.section .section-center {
+  position: relative;
+  top: 50%;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+
+.home-amazing-title{
+  font-family: 'Yellowtail';
+  font-size: 12vw;
+  color: white;
+  margin-bottom: 108px;
+  position: relative;
+  text-align: center;
+}
+
+#over_write{
+  flex-wrap: nowrap;
+  flex-shrink: 1;
+}
+
+#booking {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)),url(home_background.jpg);
+  height:75vh;
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+/* SEARCH BACKGROUND */
+.booking-form {
+  background: #fff;
+  border-radius: 16px;
+}
+
+.booking-form>form .row.no-margin {
+  margin-right: 8px;
+  margin-left: 0px;
+}
+
+.booking-form>form .row.no-margin>[class*="col-"] {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.booking-form .form-group {
+  position: relative;
+  padding: 25px;
+  margin-bottom: 0px;
+}
+/* Left Line of groups */
+.booking-form .form-group:after {
+  content: '';
+  background: rgba(129, 131, 144, 0.15);
+  position: absolute;
+  top: 25px;
+  bottom: 0;
+  right: 0;
+  width: 2px;
+  height: 75px;
+}
+/* box size ?*/
+.booking-form .form-control {
+  background-color: transparent;
+  border-radius: 0px;
+  border: none;
+  height: 50px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  font-size: 20px;
+  color: #222;
+  font-weight: 400;
+  padding: 0;
+}
+
+.booking-form .form-control::-webkit-input-placeholder {
+  color: #818390;
+}
+
+.booking-form .form-control:-ms-input-placeholder {
+  color: #818390;
+}
+
+.booking-form .form-control::placeholder {
+  color: #818390;
+}
+
+.booking-form input[type="date"].form-control:invalid {
+  color: #818390;
+}
+
+.booking-form select.form-control {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+/* Down Arrow */
+.booking-form select.form-control+.select-arrow {
+  position: absolute;
+  right: 0px;
+  bottom: 30px;
+  width: 32px;
+  line-height: 32px;
+  height: 32px;
+  text-align: center;
+  pointer-events: none;
+  color: #818390;
+  font-size: 14px;
+}
+
+.booking-form select.form-control+.select-arrow:after {
+  content: '\279C';
+  display: block;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.booking-form .form-label {
+  color: #ff0063;
+  display: block;
+  font-weight: 400;
+  height: 25px;
+  line-height: 25px;
+  font-size: 14px;
+}
+
+.booking-form .form-btn {
+  padding: 25px;
+}
+
+.booking-form .submit-btn {
+  background: #ff0063;
+  border: none;
+  text-transform: capitalize;
+  display: block;
+  border-radius: 2px;
+  width: 100%;
+  height: 75px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+}

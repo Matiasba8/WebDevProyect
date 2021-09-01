@@ -1,0 +1,192 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="mb-5">Lodgings</h1>
+
+<div class="d-inline-flex">
+
+</div>
+
+
+<div class="dropdown mt-3">
+  <button class="btn btn-secondary dropdown-toggle bg-dark" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Extra-Filters
+  </button>
+
+
+  <ul id="menu-padding" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <!--    dropdown-menu header-->
+    <li>
+      <h5 id="filter-header" class="mt-2"><b> Amenities </b></h5>
+      <hr class = "mb-3">
+    </li>
+    <!--    Kitchen and dining sub-header-->
+    <li>
+      <h6 id="filter-sub-header"><b> Kitchen and dining </b></h6>
+      <hr>
+    </li>
+    <!--    CheckBox Kitchen and dining-->
+    <li>
+      <div class="filter_options_container mt-2">
+        <%= check_box_tag(:cookware)%><span class="me-3"> Cookware </span>
+        <%= check_box_tag(:dishwasher)%><span class="me-3"> Dishwasher </span>
+        <%= check_box_tag(:tv)%><span class="me-3"> Breakfast </span>
+        <%= check_box_tag(:tv)%><span class="me-3"> Freezer </span>
+        <%= check_box_tag(:tv)%><span class="me-3"> Kitchen </span>
+        <%= check_box_tag(:tv)%><span class="me-3"> Refrigerator </span>
+        <%= check_box_tag(:tv)%><span class="me-3"> Toaster </span>
+
+      </div>
+    </li>
+    <li>
+      <h6 id="filter-sub-header"><b> Entertainment </b></h6>
+      <hr>
+    </li>
+
+    <li>
+      <div class="filter_options_container mt-2">
+
+        <%= check_box_tag(:tv)%><span class="me-3"> TV </span>
+        <%= check_box_tag(:tv)%><span class="me-3"> Wifi </span>
+        <%= check_box_tag(:tv)%><span class="me-3"> Pool table </span>
+        <%= check_box_tag(:tv)%><span class="me-3"> Exercise equipment </span>
+
+      </div>
+    </li>
+    <li>
+      <h6 id="filter-sub-header"><b> Parking and facilities </b></h6>
+      <hr>
+    </li>
+
+    <li>
+      <div class="filter_options_container mt-2">
+
+        <%= check_box_tag(:tv)%><span class="me-3"> Elevator </span>
+        <%= check_box_tag(:tv)%><span class="me-3"> Gym </span>
+        <%= check_box_tag(:tv)%><span class="me-3"> Pool </span>
+        <%= check_box_tag(:tv)%><span class="me-3"> Sauna </span>
+        <%= check_box_tag(:tv)%><span class="me-3"> Free street parking </span>
+
+      </div>
+    </li>
+    <li>
+      <h6 id="filter-sub-header"><b> Bedroom and laundry </b></h6>
+      <hr>
+    </li>
+
+    <li>
+      <div class="filter_options_container mt-2">
+
+        <%= check_box_tag(:tv)%><span class="me-3"> Essentials </span>
+        <%= check_box_tag(:tv)%><span class="me-3"> Bed linens </span>
+        <%= check_box_tag(:tv)%><span class="me-3"> Clothing storage </span>
+        <%= check_box_tag(:tv)%><span class="me-3"> Extra pillows and blankets </span>
+        <%= check_box_tag(:tv)%><span class="me-3"> Washer </span>
+
+      </div>
+
+    </li>
+
+    <li id="submit-filter">
+
+      <a class="btn btn-secondary bg-dark mt-5" type="button" >
+        Apply Filters
+      </a>
+
+    </li>
+
+  </ul>
+
+  <button class="btn btn-secondary dropdown-toggle bg-dark" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Daily Fee
+  </button>
+
+  <ul id="menu-padding" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+    <!--    dropdown-menu header-->
+    <li>
+      <h5 id="filter-header" class="mt-2"><b> Daily Fee </b></h5>
+      <hr class = "mb-3">
+
+      <span class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"><b>Min-Fee</b></label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </span>
+      <span class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"><b>Max-Fee</b></label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
+      </span>
+
+    </li>
+
+
+    <li id="submit-filter">
+
+      <a class="btn btn-secondary bg-dark mt-5" type="button" >
+        Apply Filters
+      </a>
+
+    </li>
+
+
+  </ul>
+
+</div>
+
+
+<table class = "table table-hover">
+  <thead class = "thead-dark">
+  <tr>
+    <th >Preview</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Location</th>
+    <th>Amenities</th>
+    <th>Facilities</th>
+    <th>Equipment</th>
+    <th>Reservation</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% if @lodgings != nil %>
+
+    <% @lodgings.each do |lodging| %>
+      <tr>
+        <td class = "vertical_center">
+          <% if lodging.photo.attached? %>
+            <img alt="" src="<%=(url_for(lodging.photo))%>" style="width:200px;height:200px;">
+          <% end %>
+        </td>
+        <td class = "vertical_center"><%= lodging.title %></td>
+        <td class = "vertical_center"><%= lodging.description %></td>
+        <td class = "vertical_center"><%= lodging.location %></td>
+        <td class = "vertical_center"><%= lodging.amenities %></td>
+        <td class = "vertical_center"><%= lodging.facilities %></td>
+        <td class = "vertical_center"><%= lodging.equipment %></td>
+
+        <td class="vertical_center">
+
+          <%= link_to 'Make Reservation', lodging , class:"btn btn-primary mt-3", style: "color: white", id: "lodging_button"%>
+          <br>
+          <%= link_to "Make Review",new_lodging_lodging_review_url(lodging, :lodgID => lodging.id), class: "btn btn-primary mt-3",style: "color: white", id: "lodging_button"%>
+
+        </td>
+
+
+
+        <% if can? :manage, @lodging %>
+          <td><%= link_to 'Edit', edit_lodging_path(lodging) %></td>
+          <td><%= link_to 'Destroy', lodging, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  <%else %>
+
+  <%end %>
+
+  </tbody>
+</table>
+
+
+<br>

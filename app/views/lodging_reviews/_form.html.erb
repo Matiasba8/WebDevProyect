@@ -1,0 +1,38 @@
+
+<!--Remember:  FIX URL !!!!-->
+<%= form_with(model: @lodging_review ,url: "http://localhost:3000/lodgings/" + session[:lodging_id] + "/lodging_reviews" , local: true) do |form| %>
+  <% if lodging_review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lodging_review.errors.count, "error") %> prohibited this lodging_review from being saved:</h2>
+
+      <ul>
+        <% lodging_review.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :description, "Description" %>
+    <%= form.text_field :description, class:"form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :rate, "Rating" %>
+    <%= form.select :rate, ["5","4","3","2","1"], class:"form-control" %>
+  </div>
+
+  <div class="mb-3">
+      <%= form.hidden_field :lodging_id, :value => params[:lodgID]%>
+  </div>
+
+  <div class="mb-3">
+    <%= form.hidden_field :user_id, :value => session[:user_id]%>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit method: :create %>
+  </div>
+<% end %>

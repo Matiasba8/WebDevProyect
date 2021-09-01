@@ -1,0 +1,21 @@
+<h2>FROM:</h2>
+
+<hr>
+<br>
+
+<p class = "profile_info">
+  <strong class = "profile_title" >From: </strong>
+  <%= @from_user.email %>
+</p>
+
+<p class = "profile_info">
+  <strong class = "profile_title">Purpose:</strong>
+  <%= @show_email_data.purpose %>
+</p>
+
+<p class = "profile_info">
+  <strong class = "profile_title">Body:</strong>
+  <%=@show_email_data.body%>
+</p>
+
+<%= link_to 'Back', received_messages_path,method: :get, class: "btn btn-primary", style: "color: white" %>

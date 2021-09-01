@@ -1,0 +1,107 @@
+<h1> Profile </h1>
+<hr>
+<br>
+
+<p class = "profile_info">
+  <strong class = "profile_title" >First name:</strong>
+  <%= @user.first_name %>
+</p>
+
+<p class = "profile_info">
+  <strong class = "profile_title">Last name:</strong>
+  <%= @user.last_name %>
+</p>
+
+<p class = "profile_info">
+  <strong class = "profile_title">Username:</strong>
+  <%=@user.username%>
+</p>
+
+<p class = "profile_info">
+  <strong class = "profile_title">Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p class = "profile_info">
+  <strong class = "profile_title">Current role:</strong>
+  <%= @user.current_role %>
+</p>
+<h2 class = "extra_profile_data"> Edit Information </h2>
+
+<%= form_with(url: account_settings_path, local: true) do |form| %>
+
+  <div class="mb-3">
+    <%= form.label :location, "Location" %>
+    <%= form.text_field :location, class:"form-control", placeholder: @user.location%>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :phone_num, "Phone number" %>
+    <%= form.text_field :phone_num, class:"form-control", placeholder: @user.phone_num %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :bio, "Biography" %>
+    <%= form.text_area :bio, size: "70x5", class:"form-control", placeholder: @user.bio %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary"%>
+  </div>
+<% end %>
+
+
+<hr>
+
+<h2 class = "extra_profile_data"> Edit Name </h2>
+
+<%= form_with(url: name_settings_path, local: true) do |form| %>
+
+  <div class="mb-3">
+    <%= form.label :first_name, "Change Name" %>
+    <%= form.text_field :first_name, class:"form-control", placeholder: "First Name" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :last_name, "Change Last Name" %>
+    <%= form.text_field :last_name, class:"form-control", placeholder: "Last Name" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary"%>
+  </div>
+<% end %>
+<hr>
+
+
+<hr>
+
+<h2 class = "extra_profile_data"> Edit Password </h2>
+
+<%= form_with(url: password_settings_path, local: true) do |form| %>
+
+  <div class="mb-3">
+    <%= form.label :password, "Change Password" %>
+    <%= form.text_field :password, class:"form-control", placeholder: @user.password %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary"%>
+  </div>
+
+  <div class="mb-3">
+    <%=link_to "Delete Account", account_settings_path, action: "destroy_user", method: :delete, style: "color:white" ,class:"btn btn-danger", data: { confirm: 'Are you sure?' } %>
+  </div>
+
+  <div class="mb-3">
+    <%=link_to "Set Security Questions", recover_password_with_sq_path,style: "color:white",  action: "new_sq",class:"btn btn-primary" %>
+  </div>
+
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-info">
+      <%= msg %>
+    </div>
+  <% end %>
+
+<% end %>
+<hr>

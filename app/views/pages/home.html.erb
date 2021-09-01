@@ -1,0 +1,62 @@
+<header>
+
+
+  <div id="booking" class="section mt-5">
+
+
+    <div class="section-top">
+      <div class="container">
+
+        <div class="row">
+          <div class="booking-form">
+
+            <%= form_with(url: lodgings_path, local: true, method: :get, action: :index) do |form| %>
+
+              <!-- Row for the contents of the lodging search engine, check-in/out, and submit button-->
+              <div class="row no-margin">
+
+                <!--                All columns are the same width for all types of web browser widths-->
+                <!--                Destination-->
+                <div id="over_write" class="col-sm">
+
+                  <div class="form-group">
+                    <span class="form-label">Destination</span>
+                    <%= form.text_field :location, class:"form-control", placeholder:"Country, ZIP, city...",type:"text", required: true %>
+
+
+                  </div>
+                </div>
+
+                <!--                Check In-->
+                <div id="over_write" class="col-sm">
+                  <div class="form-group">
+                    <span class="form-label">Check In</span>
+                    <%= form.text_field :check_in, class:"form-control", type:"date", :required => true %>
+                  </div>
+                </div>
+
+                <!--                Check Out-->
+                <div id="over_write" class="col-sm">
+                  <div class="form-group">
+                    <span class="form-label">Check Out</span>
+                    <%= form.text_field :check_out, class:"form-control", type:"date", :required => true %>
+                  </div>
+                </div>
+
+                <!--                Submit Form Button-->
+
+                <div id="over_write" class="col-sm">
+                  <div class="form-btn">
+                    <%= form.submit "Check Availability", class:"submit-btn", id: "default-button"%>
+                  </div>
+                </div>
+
+              </div>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

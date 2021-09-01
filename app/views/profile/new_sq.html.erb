@@ -1,0 +1,53 @@
+<h1 class = "mb-3"> Security Questions </h1>
+
+<pre class="report_request_descr">
+  Brief explanation how security questions work
+ </pre>
+
+
+<%= form_with(url: check_sq_path, local: true) do |form| %>
+
+  <div class="mb-3">
+    <b><%= form.label :q1, "Question 1" %></b>
+    <%= form.text_field :q1, class:"form-control"%>
+  </div>
+
+  <div class="mb-3">
+  <b>  <%= form.label :answer1, "Answer" %> </b>
+    <%= form.text_field :answer1, class:"form-control" %>
+  </div>
+
+
+  <div class="mb-3">
+    <b><%= form.label :q2, "Question 2" %></b>
+    <%= form.text_field :q2, class:"form-control"%>
+  </div>
+
+  <div class="mb-3">
+    <b><%= form.label :answer2, "Answer" %></b>
+    <%= form.text_field :answer2, class:"form-control" %>
+  </div>
+
+
+
+  <div class="mb-3">
+    <b><%= form.label :q3, "Question 3" %></b>
+    <%= form.text_field :q3, class:"form-control"%>
+  </div>
+
+  <div class="mb-3">
+    <b><%= form.label :answer3, "Answer" %></b>
+    <%= form.text_field :answer3, class:"form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit "Submit", class: "btn btn-primary", method: :post, action: "create_sq"%>
+  </div>
+
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-success">
+      <%= msg %>
+    </div>
+  <% end %>
+
+<% end %>

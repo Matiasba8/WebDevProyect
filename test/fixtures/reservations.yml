@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lodging: one
+  user: one
+  start_date: 2021-04-27
+  end_date: 2021-04-27
+  daily_fee: MyString
+  confirmation: false
+  paid: false
+
+two:
+  lodging: two
+  user: two
+  start_date: 2021-04-27
+  end_date: 2021-04-27
+  daily_fee: MyString
+  confirmation: false
+  paid: false

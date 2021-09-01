@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CourseProjectBustosChristie</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet'>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<!-- TOP NAVIGATOR -->
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container-fluid">
+
+    <!-- Image Logo and Title Logo, [to fix the issue that javascript stop working, is needed to override the method !!! ] -->
+    <%= link_to image_tag('house.png', width: 30, height: 30), root_path, method: :get%>
+    <%=link_to "Lodgebook", root_path, class: "logo_title", style: "color: white", method: :get%>
+
+
+    <!-- Displays the drop down browser buttons when the screen is very small -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Main Navigation Bar -->
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+
+          <li class="nav-item">
+            <a class="nav-link active nav-bar-item" aria-current="page" href="/users">Search Users</a>
+          </li>
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="#">Link</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+<!--          </li>-->
+      </ul>
+    </div>
+
+    <!-- Profile Button dropdown options -->
+    <div class="btn-group">
+      <button type="button" class="btn btn-secondary dropdown-toggle account_logo" data-bs-toggle="dropdown" aria-expanded="false">
+        <%= image_tag("account3.png", width: 30, height: 30) %>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end ">
+
+        <% if $logged %>
+          <!-- check if there is a user connected to the page -->
+          <li><%=link_to "Profile", "/profile", class:"dropdown-item", style: "color:black" %></li>
+          <li><%=link_to "Messages", received_messages_path, class:"dropdown-item", style: "color:black" %></li>
+          <li><%=link_to "Reservations", "/reservations", class:"dropdown-item", style: "color:black"%></li>
+          <li><%=link_to "Account",account_settings_path , class:"dropdown-item", style: "color:black", method: :get %></li>
+          <li><%=link_to "Report",report_form_path , class:"dropdown-item", style: "color:black", method: :get %></li>
+
+          <li><%=link_to "Log Out", logout_path,method: :logout , class:"dropdown-item" %></li>
+
+        <%else %>
+          <li><%=link_to "Sign Up", users_new_path, class:"dropdown-item", method: :get %></li>
+          <li><%=link_to "Log In",login_path, class:"dropdown-item", method: :get %></li>
+        <%end %>
+
+        <!-- <li><a class="dropdown-item" href="#">Account</a></li> -->
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer mt-auto py-2 bg-dark">
+    <div class="container mb-1">
+      <a href="https://www.termsofusegenerator.net/live.php?token=mY7PfVeHGr4mk1XFx3zgVj2m7rzOKfSq">Our Terms of Use</a>
+    </div>
+    <div class="container">
+      <a href="https://www.termsofservicegenerator.net/live.php?token=Obi8k3v6EnIIUjLlp6748ks5hZS4NHua">Our Terms of Service</a>
+    </div>
+  </footer>
+
+  <!-- https://www.termsofusegenerator.net/live.php?token=mY7PfVeHGr4mk1XFx3zgVj2m7rzOKfSq -->
+  <!-- https://www.termsofservicegenerator.net/live.php?token=Obi8k3v6EnIIUjLlp6748ks5hZS4NHua -->
+
+</nav>
+<br><br><br>
+<%= yield %>
+
+
+
+
+</body>
+</html>

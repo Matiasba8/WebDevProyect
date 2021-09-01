@@ -1,0 +1,22 @@
+<h1> Received Messages </h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>From User</th>
+      <th>Purpose</th>
+      <th></th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+      <% @inbox.each do |msg,from_user| %>
+      <tr>
+        <td><%= from_user.email %></td>
+        <td><%= msg.purpose %></td>
+        <td><%= link_to 'Show', show_email_path(show_email_id: msg.id),method: :get, class: "btn btn-primary", style: "color:white" %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
